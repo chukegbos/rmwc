@@ -13,24 +13,22 @@
             <div class="login-form text-center">
               <form method="post" action="{{ route('login') }}">
                 {{ csrf_field() }}
-                <div class="messages"></div>
-
                 <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                  <input id="form_name" type="text" name="username" class="form-control" placeholder="User name" required="required" data-error="Username is required." value="{{ old('username') }}" required autofocus>
-                      @if ($errors->has('username'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('username') }}</strong>
-                            </span>
-                        @endif
+                  <input type="text" name="username" class="form-control" placeholder="User name" value="{{ old('username') }}" required autofocus>
+                  @if ($errors->has('username'))
+                    <span class="help-block">
+                      <strong>{{ $errors->first('username') }}</strong>
+                    </span>
+                  @endif
                 </div>
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                  <input id="form_password" type="password" name="password" class="form-control" placeholder="Password" required="required" data-error="password is required.">
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
+                  <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+                  @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                  @endif
                 </div>
                 <div class="form-group mt-4 mb-5">
                   <div class="remember-checkbox d-flex align-items-center justify-content-between">
